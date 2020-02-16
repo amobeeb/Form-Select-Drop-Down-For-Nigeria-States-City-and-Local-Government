@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Select | Nigeria</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="state">State</label>
+            <select name="" id="state">
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            <label for="city">City</label>
+            <select name="" id="city">
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            <label for="lg">Local Government</label>
+            <select name="" id="city">
+                <option value=""></option>
+            </select>
+        </div>
+    </form>
+
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var data = [{
+                id: 1,
+                state: "Lagos",
+                lg: [{
+                    name: "Alimosho",
+                }],
+                city: [{
+                    name: "Alagbado"
+                }],
+            }, {
+                id: 2,
+                state: "Ogun",
+                lg: [{
+                    name: "Abeokuta North"
+                }, {
+                    name: "Abeokuta South"
+                }, {
+                    name: "Yewa North"
+                }, {
+                    name: "Yewa South"
+                }, ]
+            }, ];
+            var id = 0;
+            var data_len = data.length;
+            for (var i = 0; i < data_len; i++) {
+                $("#state").append("<option value='" + i + "'>" + data[i].state + "</option>")
+
+            }
+
+            $("#state").change(function() {
+                $("#city").html("");
+                var state = $('#state').val();
+                len = data[state].lg.length;
+                // $("#city").append("<option>" + data[1].lg.name + "</option>")
+                for (var i = 0; i < len; i++) {
+                    $("#city").append("<option>" + data[state].lg[i].name + "</option>")
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
