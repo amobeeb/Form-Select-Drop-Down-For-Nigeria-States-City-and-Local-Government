@@ -19,13 +19,13 @@
         <div>
             <label for="city">City</label>
             <select name="" id="city">
-                <option value=""></option>
+                
             </select>
         </div>
         <div>
             <label for="lg">Local Government</label>
-            <select name="" id="city">
-                <option value=""></option>
+            <select name="" id="lg">
+                 
             </select>
         </div>
     </form>
@@ -39,10 +39,25 @@
                 id: 1,
                 state: "Lagos",
                 lg: [{
-                    name: "Alimosho",
+                    name: "Alimosho"
+                }, {
+                    name: "Ikeja"
+                }, {
+                    name: "Agege"
+                }, {
+                    name: "Badagry"
                 }],
                 city: [{
-                    name: "Alagbado"
+
+                    name: "Alimosho"
+                }, {
+                    name: "Ikeja"
+                }, {
+                    name: "Agege"
+                }, {
+                    name: "Badagry"
+                }, {
+                    name: "Yaba"
                 }],
             }, {
                 id: 2,
@@ -55,22 +70,39 @@
                     name: "Yewa North"
                 }, {
                     name: "Yewa South"
-                }, ]
+                }],
+                city: [{
+                    name: "Oke Ilewo"
+                }, {
+                    name: "Oke Sokori"
+                }, {
+                    name: "Oke Yeke"
+                }],
             }, ];
+
             var id = 0;
             var data_len = data.length;
+            var aa = data[0].city.length;
+
             for (var i = 0; i < data_len; i++) {
                 $("#state").append("<option value='" + i + "'>" + data[i].state + "</option>")
 
             }
 
             $("#state").change(function() {
+
                 $("#city").html("");
+                $("#lg").html("");
                 var state = $('#state').val();
-                len = data[state].lg.length;
+                lg_len = data[state].lg.length;
+                city_len = data[state].city.length;
                 // $("#city").append("<option>" + data[1].lg.name + "</option>")
-                for (var i = 0; i < len; i++) {
-                    $("#city").append("<option>" + data[state].lg[i].name + "</option>")
+                // alert(city_len)
+                for (var i = 0; i < city_len; i++) {
+                    $("#city").append("<option>" + data[state].city[i].name + "</option>")
+                }
+                for (var i = 0; i < lg_len; i++) {
+                    $("#lg").append("<option>" + data[state].lg[i].name + "</option>")
                 }
             })
         });

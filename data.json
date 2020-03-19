@@ -1,0 +1,27 @@
+{
+    "data": [{
+            "id": 1,
+            "state": "Lagos",
+            "lg": [
+                { "name": "Alimosho" },
+                { "name": "Ikeja" }
+            ],
+            "city": [
+                { "name": "Alagbado" },
+                { "name": "Ajah" }
+            ]
+        },
+        {
+            "id": 1,
+            "state": "Ogun",
+            "lg": [
+                { "name": "Abeokuta North" },
+                { "name": "Abeokuta South" }
+            ],
+            "city": [
+                { "name": "Oke Ilewo" },
+                { "name": "Ibara" }
+            ]
+        }
+    ]
+}
